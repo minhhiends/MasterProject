@@ -42,11 +42,11 @@ with open("Nodes.txt", "r") as f1:
     #Calculate distances between nodes and centers
     def kmeans_assign_labels(X, centers):
         # calculate pairwise distances btw data and centers
-        #D = cdist(Y, centers)
+        D = cdist(Y, centers)
         for i in Y:
             for j in centers:
                 d = np.linalg.norm(j - i)
-        if ((np.all(d) < 36)):
+        if (np.all(d < 36)):
             D = cdist(Y, centers)
         #return index of the closest center
         H = np.argmin(D, axis = 1)
@@ -90,6 +90,6 @@ with open("Nodes.txt", "r") as f1:
             it += 1
         print(it)
         labels.append(kmeans_assign_labels(Y, centers[-1]))
-        print ("Centers found:")    
+        print ("Centers found:")
         print(centers[-1])
         return (centers, labels, it)
