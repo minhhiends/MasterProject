@@ -51,7 +51,7 @@ with open("Nodes.txt", "r") as f1:
         #return index of the closest center
         H = np.argmin(D, axis = 1)
         G1 = np.bincount(H)
-        print (G1)
+        # print G1
         return (H)
 
     #Update new centers
@@ -88,8 +88,8 @@ with open("Nodes.txt", "r") as f1:
                 break
             centers.append(new_centers)
             it += 1
-        print(it)
         labels.append(kmeans_assign_labels(Y, centers[-1]))
-        print ("Centers found:")
-        print(centers[-1])
-        return (centers, labels, it)
+        print "Clustering's time:",it,"(times)"
+        print "Centers found:"
+        print centers[-1]
+        return centers, labels, it
