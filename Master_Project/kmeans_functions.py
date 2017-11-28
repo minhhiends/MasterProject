@@ -2,7 +2,6 @@ import random
 import numpy as np 
 import matplotlib.pyplot as plt
 from scipy.spatial.distance import cdist
-# from CreateNodes import*
 
 
 np.set_printoptions(threshold="nan")
