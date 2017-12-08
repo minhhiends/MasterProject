@@ -67,9 +67,9 @@ with open("Nodes.txt", "r") as f1:
             np.savetxt('/home/minhhien/Documents/MasterProject/Master_Project/Debug/nodes_assign.txt', Y,fmt='%4.4f', delimiter=' ')
             # take average
             centers[k,:] = np.mean(Yk, axis = 0)
-        # D2 = cdist(Yk,centers[:,:])
         nodes_assign = np.loadtxt("/home/minhhien/Documents/MasterProject/Master_Project/Debug/nodes_assign.txt",delimiter=' ')
         Dist = cdist(nodes_assign, centers[:,:])
+        #Check condiction distance < 90
         for i in Dist:
             f5.write("%s\n" %any(i < 90))
         f4.write("%s\n" %Dist)
