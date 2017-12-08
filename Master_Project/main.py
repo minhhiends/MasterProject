@@ -6,7 +6,7 @@ from kmeans_functions import*
 
 np.random.seed(11)
 #Main function
-K = 9
+K = 10
 (centers, labels, it) = kmeans(Y, K)
 P = kmeans_display(Y, labels[-1],centers[-1])
 

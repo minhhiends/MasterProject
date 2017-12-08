@@ -42,25 +42,39 @@ with open("Nodes.txt", "r") as f1:
     def kmeans_assign_labels(X, centers):
         # calculate pairwise distances btw data and centers
         D = cdist(Y, centers)
-        for i in Y:
-            for j in centers:
-                d = np.linalg.norm(j - i)
-        if (np.all(d < 36)):
-            D = cdist(Y, centers)
         #return index of the closest center
         H = np.argmin(D, axis = 1)
-        G1 = np.bincount(H)
+        # G1 = np.bincount(H)
         # print G1
         return (H)
+
+    #Function calculate distance
+    def size(vector):
+        return np.sqrt(sum(x**2 for x in vector))
+    def distance(vector1, vector2):
+        return size(vector1 - vector2)
+    def distances(array1, array2):
+        return [[distance(vector1, vector2) for vector2 in array2] for vector1 in array1]
 
     #Update new centers
     def kmeans_update_centers(X, labels, K):
         centers = np.zeros((K, Y.shape[1]))
+        f4 = open("/home/minhhien/Documents/MasterProject/Master_Project/Debug/distances.txt", "w+")
+        f5 = open("/home/minhhien/Documents/MasterProject/Master_Project/Debug/check_condiction.txt","w+")
         for k in range(K):
             # collect all points assigned to the k-th cluster
             Yk= Y[labels == k, ]
+            np.savetxt('/home/minhhien/Documents/MasterProject/Master_Project/Debug/nodes_assign.txt', Y,fmt='%4.4f', delimiter=' ')
             # take average
             centers[k,:] = np.mean(Yk, axis = 0)
+        # D2 = cdist(Yk,centers[:,:])
+        nodes_assign = np.loadtxt("/home/minhhien/Documents/MasterProject/Master_Project/Debug/nodes_assign.txt",delimiter=' ')
+        Dist = cdist(nodes_assign, centers[:,:])
+        for i in Dist:
+            f5.write("%s\n" %any(i < 90))
+        f4.write("%s\n" %Dist)
+        f4.close()
+        f5.close()
         return centers
 
     #Compare position between old centers and new centers
