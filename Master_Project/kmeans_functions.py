@@ -48,14 +48,6 @@ with open("Nodes.txt", "r") as f1:
         # print G1
         return (H)
 
-    #Function calculate distance
-    def size(vector):
-        return np.sqrt(sum(x**2 for x in vector))
-    def distance(vector1, vector2):
-        return size(vector1 - vector2)
-    def distances(array1, array2):
-        return [[distance(vector1, vector2) for vector2 in array2] for vector1 in array1]
-
     #Update new centers
     def kmeans_update_centers(X, labels, K):
         centers = np.zeros((K, Y.shape[1]))
@@ -71,7 +63,7 @@ with open("Nodes.txt", "r") as f1:
         Dist = cdist(nodes_assign, centers[:,:])
         #Check condiction distance < 90
         for i in Dist:
-            f5.write("%s\n" %any(i < 90))
+            f5.write("%s\n" %any(i < 113))
         f4.write("%s\n" %Dist)
         f4.close()
         f5.close()
