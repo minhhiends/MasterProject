@@ -56,12 +56,12 @@ with open("Nodes.txt", "r") as f1:
         for k in range(K):
             # collect all points assigned to the k-th cluster
             Yk= Y[labels == k, ]
-            np.savetxt('/home/minhhien/Documents/MasterProject/Master_Project/Debug/nodes_assign.txt', Y,fmt='%4.4f', delimiter=' ')
+            np.savetxt('/home/minhhien/Documents/MasterProject/Master_Project/Debug/nodes_assign.txt', Y,fmt='%4.4f', delimiter=' ')           
             # take average
             centers[k,:] = np.mean(Yk, axis = 0)
         nodes_assign = np.loadtxt("/home/minhhien/Documents/MasterProject/Master_Project/Debug/nodes_assign.txt",delimiter=' ')
         Dist = cdist(nodes_assign, centers[:,:])
-        #Check condiction distance < 90
+        #Check condiction distance < 113
         for i in Dist:
             f5.write("%s\n" %any(i < 113))
         f4.write("%s\n" %Dist)
