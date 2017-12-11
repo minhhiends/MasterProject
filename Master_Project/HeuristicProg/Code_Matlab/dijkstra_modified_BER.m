@@ -69,7 +69,7 @@
             %tra ve ket qua dist
             dist = Len(t,1);
             % in ra man hinh ket qua tong weight
-            msg = strcat('tong duong di tu node ',num2str(s),' toi node ',num2str(t),'la ',num2str(dist));
+            msg = strcat('Tong duong di tu node',num2str(s),' toi node',num2str(t),' la: ',num2str(dist), ' ');
             disp(msg);
             % tra ve ket qua path
             count = 2;

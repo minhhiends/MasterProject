@@ -1,7 +1,7 @@
 function TopoFSO
-%filename = '/home/minhhien/Documents/Result_master/DataInput/inputnodes_k2.5M8.txt';
+filename = '/home/minhhien/Documents/Result_master/DataInput/inputnodes_k2.5M8.txt';
 %filename = '/home/minhhien/Documents/Result_master/DataInput/inputnodes_k3M9.txt';
-filename = '/home/minhhien/Documents/Result_master/DataInput/inputnodes_Set12_k3M10D10.txt';
+%filename = '/home/minhhien/Documents/Result_master/DataInput/inputnodes_Set12_k3M10D10.txt';
 
 run_one_topo(filename);
 end
@@ -99,7 +99,7 @@ end
 disp('Toa do cua cac node la: ')
 for i=1:M
     V=[x(i) y(i) z(i)];
-    disp(['toa do cua node thu',' ',num2str(i),' ','la',' ','v',num2str(i),'=',' ','(',num2str(V),')'])
+    disp(['Toa do cua node thu',' ',num2str(i),' ','la',' ','v',num2str(i),'=',' ','(',num2str(V),')'])
 end
 fprintf('\n')
 
@@ -191,7 +191,7 @@ end
 L_mean= L_total/L_num;
 fprintf('\n');
 timeweight = etime(clock, timeweitghtbegin);
-disp('thoi gian tinh weight la: ');disp(timeweight);
+disp('Thoi gian tinh weight la: ');disp(timeweight);
 fprintf('\n');
 
 
@@ -220,7 +220,7 @@ for m=1:D
     %[dist,path] = graphshortestpath(sparse(G),s(m),t(m),'Directed',false, 'Method', 'Dijkstra'); %undirected graph
     [~,path,status] = dijkstra_modified_BER(sparse(G),s(m),t(m),BER,Threshold_BER, BW); %undirected graph
     if (status ==1)
-        disp(['path giua node',' ',num2str(s(m)),' ','va',' ',num2str(t(m)),' ','la',': ']);disp(path);
+        disp(['Path giua node',' ',num2str(s(m)),' ','va',' ',num2str(t(m)),' ','la',': ']);disp(path);
         %disp(['do dai duong di ', num2str(dist)]);
     else
         disp(['No feasible path is found. Bai toan vo nghiem ']);
@@ -291,13 +291,13 @@ end
 L_average_num =L_average_num/m;
 %tongBER=sum(distK);
 %BWW
-disp('bandwidth con lai cua cac edge su dung la: ');disp(BWEND);
+disp('Bandwidth con lai cua cac edge su dung la: ');disp(BWEND);
 disp('Tong so BER tren Topo la: ');disp(tongBER)
 %disp('Tong so Weight(do dai duong di) tren Topo la: ');disp(tongW)
 disp('Tong so link su dung cho Topo la: ');disp(tonglink)
 disp('Thoi gian ket thuc chuong trinh la: ');disp(timecurrent)
 timeTopo = etime(clock, timecurrent);
-('Thoi gian chay het chuong trinh la: ');disp(timeTopo)
+disp('Thoi gian chay het chuong trinh la: ');disp(timeTopo)
 save ('/home/minhhien/Documents/MasterProject/Master_Project/HeuristicProg/Code_Matlab/varicurrent','Node','tongBER','BER','M','s','k','t','Tw','bw','D','Inpath','distK','W','tonglink','timecurrent','timeinput','timeweight','timeTopo','matrixD','BW','N','Bwmax','matrixD_output') % luu cac bien 'Node','BER' vao trong file 'varicurrent.mat'
 efficiency = tonglink/L_feasible_num;
 fprintf(f_all,'\t timeTopo\t%-0.4f \t Tong link \t%d \tEfficiency \t %f \t Avg links/path \t%f \t Tong BER \t%d\n', timeTopo, tonglink, efficiency, L_average_num, tongBER);
