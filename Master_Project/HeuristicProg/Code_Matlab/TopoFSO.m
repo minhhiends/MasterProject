@@ -1,8 +1,9 @@
 function TopoFSO
-filename = '/home/minhhien/Documents/Result_master/DataInput/inputnodes_k2.5M8.txt';
-%filename = '/home/minhhien/Documents/Result_master/DataInput/inputnodes_k3M9.txt';
-%filename = '/home/minhhien/Documents/Result_master/DataInput/inputnodes_Set12_k3M10D10.txt';
-
+%filename = '/home/minhhien/Documents/Result_master/DataInput/inputnodes_k3M8.txt';
+filename = '/home/minhhien/Documents/Result_master/DataInput/inputnodes_k3M9.txt';
+%filename = '/home/minhhien/Documents/Result_master/DataInput/inputnodes_k3M10.txt';
+%filename = '/home/minhhien/Documents/Result_master/DataInput/inputnodes_k3M11.txt';
+%filename = '/home/minhhien/Documents/Result_master/DataInput/inputnodes_k3M12.txt';
 run_one_topo(filename);
 end
 
