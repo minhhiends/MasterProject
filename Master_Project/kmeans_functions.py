@@ -72,8 +72,7 @@ with open("Nodes.txt", "r") as f1:
     #Compare position between old centers and new centers
     def has_converged1(centers, new_centers):
         # return True if two sets of centers are the same
-        return ((set([tuple(a) for a in centers]) == 
-            set([tuple(a) for a in new_centers])))
+        return ((set([tuple(a) for a in centers]) == set([tuple(a) for a in new_centers])))
 
     #Compare numbers of nodes with max nodes
     def has_converged2(g, Max_nodes):
